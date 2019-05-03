@@ -1,18 +1,21 @@
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
-        <h2>{{image.title}}</h2>
+        <h2>Información de Contacto:</h2>
         <button class="btn btn-danger" id="btn-delete" data-id="{{image.uniqueId}}">
-            <i class="fa fa-times"></i> Delete
+            <i class="fa fa-times"></i> Borrar
         </button>
     </div>
-    <div class="card-body">
-        <p>{{image.description}}</p>
+    <div class="card-body">        
         <div class="text-center">
-            <img src="/public/upload/{{image.filename}}" class="img-fluid">
-        </div>
+        <p><strong>Nombres: </strong>{{image.nombres}}</p>
+        <p><strong>Apellidos: </strong>{{image.apellidos}}</p>
+        <p><strong>Correo: </strong>{{image.correo}}</p>
+        <p><strong>Fecha de Nacimiento: </strong>{{image.fecha_nac}}</p>
+            <img src="/public/upload/{{image.foto}}" class="img-fluid">
+        </div>        
     </div>
-    <div class="card-footer d-flex justify-content-between align-items-center">
-        <button class="btn btn-success" id="btn-like" data-id="{{image.filename}}">
+    {{!-- <div class="card-footer d-flex justify-content-between align-items-center">
+        <button class="btn btn-success" id="btn-like" data-id="{{image.foto}}">
             <i class="fas fa-thumbs-up"></i> Like
         </button>
         <p>
@@ -27,31 +30,31 @@
             <i class="far fa-clock"></i>
             {{timeago image.timestamp}}
         </p>
-    </div>
+    </div> --}}
 </div>
 
 <div class="card mt-2">
     <div class="card-header d-flex justify-content-between align-items-center">
-        <h3>Comments</h3>
+        <h3>Agregar Notas</h3>
         <button class="btn btn-info" id="btn-toggle-comment">
-            <i class="fa fa-comment-o"></i> Post a comment
+            <i class="fa fa-comment-o"></i> Expandir
         </button>
     </div>
     <div class="card-body">
         <blockquote id="post-comment">
             <form action="/images/{{image.uniqueId}}/comment" method="POST">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="name" placeholder="Name">
+                    <input type="text" class="form-control" name="name" placeholder="Nombres">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="email" placeholder="Email">
+                    <input type="text" class="form-control" name="email" placeholder="Correo">
                 </div>
                 <div class="form-group">
-                    <textarea name="comment" rows="2" class="form-control" placeholder="Your comment goes here"></textarea>
+                    <textarea name="comment" rows="2" class="form-control" placeholder="escribir Nota Aquí"></textarea>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-success" id="btn-comment">
-                        <i class="fa fa-comment"></i> Publicar Post
+                        <i class="fa fa-comment"></i> Agregar Notas
                     </button>
                 </div>
             </form>
